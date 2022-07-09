@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/shared.gradle"
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+
+    implementation "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    implementation "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+}
