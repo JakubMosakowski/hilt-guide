@@ -1,36 +1,33 @@
-package com.jakmos.hiltguide.presentation.first
+package com.jakmos.hiltguide.presentation.second
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.jakmos.hiltguide.presentation.R
-import com.jakmos.hiltguide.presentation.databinding.FragmentFirstBinding
+import com.jakmos.hiltguide.presentation.databinding.FragmentSecondBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FirstFragment : Fragment() {
+class SecondFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentSecondBinding? = null
     private val binding get() = requireNotNull(_binding)
-    private val viewModel: FirstViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.print()
         binding.next.setOnClickListener {
-            findNavController().navigate(R.id.navigateToSecondFragment)
+            findNavController().navigate(R.id.navigateToFirstFragment)
         }
     }
 

@@ -9,5 +9,21 @@
         android:id="@+id/FirstFragment"
         android:name="com.jakmos.hiltguide.presentation.first.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/navigateToSecondFragment"
+            app:destination="@+id/SecondFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.jakmos.hiltguide.presentation.second.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/navigateToFirstFragment"
+            app:destination="@+id/FirstFragment" />
+    </fragment>
 </navigation>
