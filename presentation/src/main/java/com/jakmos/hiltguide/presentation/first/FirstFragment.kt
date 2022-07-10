@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.jakmos.hiltguide.presentation.R
 import com.jakmos.hiltguide.presentation.databinding.FragmentFirstBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class FirstFragment : Fragment() {
@@ -17,6 +16,9 @@ class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = requireNotNull(_binding)
     private val viewModel: FirstViewModel by viewModels()
+
+    @Inject
+    lateinit var router: FirstRouter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +30,12 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.print()
-        binding.next.setOnClickListener {
-            findNavController().navigate(R.id.navigateToSecondFragment)
-        }
+
+        setOnClicks()
+    }
+
+    private fun setOnClicks() = with(binding) {
+        next.setOnClickListener { viewModel.onNextClicked(router) }
     }
 
     override fun onDestroyView() {
