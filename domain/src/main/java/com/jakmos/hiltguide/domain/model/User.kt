@@ -1,6 +1,6 @@
 package com.jakmos.hiltguide.domain.model
 
 data class User(
-    val id: Long,
+    val id: String,
     val fullName: String,
 )

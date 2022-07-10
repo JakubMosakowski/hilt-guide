@@ -9,5 +9,5 @@ internal class UserDataRepository @Inject constructor(
     private val database: Database
 ) : UserRepository {
 
-    override suspend fun getUser(): List<User> = database.getUsers()
+    override suspend fun getUser(id: String): User? = database.getUser(id)
 }

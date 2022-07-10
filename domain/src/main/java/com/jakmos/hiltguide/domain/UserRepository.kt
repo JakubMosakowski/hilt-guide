@@ -4,5 +4,5 @@ import com.jakmos.hiltguide.domain.model.User
 
 interface UserRepository {
 
-    suspend fun getUser(): List<User>
+    suspend fun getUser(id: String): User?
 }

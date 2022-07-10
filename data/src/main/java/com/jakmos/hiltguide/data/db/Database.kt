@@ -8,7 +8,10 @@ import javax.inject.Inject
  */
 internal class Database @Inject constructor() {
 
-    private val users: MutableList<User> = mutableListOf()
+    private val users: MutableList<User> = mutableListOf(
+        User("1", "John Doe"),
+        User("2", "Jane Doe"),
+    )
 
-    fun getUsers(): List<User> = users
+    fun getUser(id: String): User? = users.find { it.id == id }
 }

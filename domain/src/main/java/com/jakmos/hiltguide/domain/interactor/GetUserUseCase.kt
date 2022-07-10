@@ -8,6 +8,6 @@ class GetUserUseCase @Inject constructor(
     private val userRepository: UserRepository
 ) {
 
-    suspend fun run(): List<User> =
-        userRepository.getUser()
+    suspend fun run(id: String): User? =
+        userRepository.getUser(id)
 }
