@@ -10,6 +10,19 @@ import androidx.navigation.fragment.findNavController
 import com.jakmos.hiltguide.presentation.R
 import com.jakmos.hiltguide.presentation.databinding.FragmentSecondBinding
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.ActivityScoped
+import dagger.hilt.android.scopes.FragmentScoped
+import dagger.hilt.android.scopes.ServiceScoped
+import javax.inject.Inject
+
+@ServiceScoped
+class ServiceUtils @Inject constructor()
+
+@FragmentScoped
+class FragmentUtils @Inject constructor()
+
+@ActivityScoped
+class ActivityUtils @Inject constructor()
 
 @AndroidEntryPoint
 class SecondFragment : Fragment() {
@@ -17,6 +30,16 @@ class SecondFragment : Fragment() {
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = requireNotNull(_binding)
     private val viewModel: SecondViewModel by viewModels()
+
+    // This is forbidden: (service scope has nothing to do with fragment)
+//    @Inject
+//    lateinit var serviceUtils: ServiceUtils
+
+    @Inject
+    lateinit var fragmentUtils: FragmentUtils
+
+    @Inject
+    lateinit var activityUtils: ActivityUtils
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
