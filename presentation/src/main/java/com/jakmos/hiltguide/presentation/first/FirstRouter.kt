@@ -1,5 +1,6 @@
 package com.jakmos.hiltguide.presentation.first
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.jakmos.hiltguide.presentation.R
@@ -11,7 +12,9 @@ class FirstRouter @Inject constructor(
     private val fragment: Fragment
 ) {
 
-
-    fun navigateToSecondFragment() =
-        fragment.findNavController().navigate(R.id.navigateToSecondFragment)
+    fun navigateToSecondFragment(userId: String) =
+        fragment.findNavController().navigate(
+            R.id.navigateToSecondFragment,
+            bundleOf("userId" to userId)
+        )
 }

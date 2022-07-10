@@ -8,5 +8,5 @@ import javax.inject.Inject
 class FirstViewModel @Inject constructor() : ViewModel() {
 
     fun onNextClicked(router: FirstRouter) =
-        router.navigateToSecondFragment()
+        router.navigateToSecondFragment("2")
 }
