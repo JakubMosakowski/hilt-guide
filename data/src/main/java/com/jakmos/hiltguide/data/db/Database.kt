@@ -1,12 +1,12 @@
 package com.jakmos.hiltguide.data.db
 
 import com.jakmos.hiltguide.domain.model.User
-import javax.inject.Inject
 
 /**
  * Simple in-memory database.
+ * Let's pretend that's a class from some library (thus missing the @Inject constructor()).
  */
-internal class Database @Inject constructor() {
+class Database {
 
     private val users: MutableList<User> = mutableListOf(
         User("1", "John Doe"),
