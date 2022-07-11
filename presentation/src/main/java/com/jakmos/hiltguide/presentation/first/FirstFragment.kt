@@ -32,6 +32,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setOnClicks()
+        viewModel.init()
     }
 
     private fun setOnClicks() = with(binding) {
