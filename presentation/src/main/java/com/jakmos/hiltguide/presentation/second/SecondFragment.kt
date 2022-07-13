@@ -57,7 +57,7 @@ class SecondFragment : Fragment() {
     }
 
     private fun setOnClicks() = with(binding) {
-        next.setOnClickListener { findNavController().navigate(R.id.navigateToFirstFragment) }
+        nextButton.setOnClickListener { findNavController().navigate(R.id.navigateToFirstFragment) }
     }
 
     override fun onDestroyView() {
