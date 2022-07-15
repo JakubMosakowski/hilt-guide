@@ -17,7 +17,9 @@ class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = requireNotNull(_binding)
+
     private val viewModel: FirstViewModel by viewModels()
+
     private var textSetter: TextSetter? = null
 
     @Inject

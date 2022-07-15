@@ -29,6 +29,7 @@ class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = requireNotNull(_binding)
+
     private val viewModel: SecondViewModel by viewModels()
 
     // This is forbidden: (service scope has nothing to do with fragment)
