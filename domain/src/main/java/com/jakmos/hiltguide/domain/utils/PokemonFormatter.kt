@@ -1,4 +1,4 @@
-package com.jakmos.hiltguide.presentation.utils
+package com.jakmos.hiltguide.domain.utils
 
 import javax.inject.Inject
 

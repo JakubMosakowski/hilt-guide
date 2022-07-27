@@ -1,6 +1,7 @@
 package com.jakmos.hiltguide.presentation.utils
 
 import android.widget.TextView
+import com.jakmos.hiltguide.domain.utils.PokemonFormatter
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
