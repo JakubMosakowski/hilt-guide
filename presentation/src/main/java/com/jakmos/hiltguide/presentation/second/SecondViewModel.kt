@@ -19,6 +19,7 @@ class SecondViewModel @Inject constructor(
     }
 
     fun loadUser() = viewModelScope.launch {
-        logger.log("User: ${args.provideUser()}")
+        val user = args.provideUser()
+        logger.log("User: $user")
     }
 }
