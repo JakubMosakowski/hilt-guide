@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jakmos.hiltguide.domain.logger.CustomLogger
 import com.jakmos.hiltguide.domain.logger.DebugLoggerQualifier
+import com.jakmos.hiltguide.presentation.second.router.SecondRouter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,4 +23,7 @@ class SecondViewModel @Inject constructor(
         val user = args.provideUser()
         logger.log("User: $user")
     }
+
+    fun onNextClicked(router: SecondRouter) =
+        router.navigateToFirstFragment()
 }

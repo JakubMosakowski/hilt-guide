@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.jakmos.hiltguide.presentation.R
 import com.jakmos.hiltguide.presentation.databinding.FragmentSecondBinding
+import com.jakmos.hiltguide.presentation.second.router.SecondRouter
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.ActivityScoped
 import dagger.hilt.android.scopes.FragmentScoped
@@ -42,6 +41,9 @@ class SecondFragment : Fragment() {
     @Inject
     lateinit var activityUtils: ActivityUtils
 
+    @Inject
+    lateinit var router: SecondRouter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,7 +60,7 @@ class SecondFragment : Fragment() {
     }
 
     private fun setOnClicks() = with(binding) {
-        nextButton.setOnClickListener { findNavController().navigate(R.id.navigateToFirstFragment) }
+        nextButton.setOnClickListener { viewModel.onNextClicked(router) }
     }
 
     override fun onDestroyView() {
